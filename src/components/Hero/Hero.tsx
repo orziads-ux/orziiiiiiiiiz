@@ -2,16 +2,31 @@ import DecorativeIcon from '../DecorativeIcons';
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden pt-16">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    <section className="relative w-full min-h-[100svh] h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Background image — uses <img> with object-fit for crisp scaling on all DPIs */}
+      <img
+        src="/header.jpg"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover object-center md:object-center"
         style={{
-          backgroundImage:
-            "linear-gradient(135deg, rgba(36, 50, 71, 0.5) 0%, rgba(36, 50, 71, 0.3) 100%), url('/header.jpg')",
-          backgroundAttachment: 'fixed',
+          imageRendering: '-webkit-optimize-contrast',
+          filter: 'contrast(1.02) saturate(1.05)',
+        }}
+        loading="eager"
+        fetchPriority="high"
+        draggable={false}
+      />
+
+      {/* Color overlay matching original gradient */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(135deg, rgba(36, 50, 71, 0.5) 0%, rgba(36, 50, 71, 0.3) 100%)',
         }}
       />
 
+      {/* Bottom fade into page background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#e7ddcc]" />
 
       <DecorativeIcon icon="crown" position={{ top: '15%', left: '10%' }} delay={0} />
