@@ -43,20 +43,30 @@ export default function Hero() {
         </p>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <svg
-          className="w-8 h-8 text-white"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center">
+        <button
+          onClick={() => {
+            const el = document.getElementById('highlights');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="animate-bounce"
+          aria-label="انتقل للأسفل"
+          style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
+          <svg
+            className="w-8 h-8 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </button>
       </div>
     </section>
   );
