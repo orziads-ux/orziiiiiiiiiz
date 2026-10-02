@@ -62,12 +62,12 @@ export default function HighlightsSection({ onStoryOpen }: HighlightsSectionProp
       <button
         key={h.id}
         onClick={() => handleClick(h)}
-        className="flex flex-col items-center gap-2 md:gap-3 group flex-shrink-0"
+        className="flex flex-col items-center gap-2 md:gap-3 group"
         style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
       >
-        <div className="p-1.5 md:p-2">
+        <div className="p-1 md:p-2">
           <div
-            className="relative rounded-full transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl w-[100px] h-[100px] md:w-[130px] md:h-[130px] lg:w-[144px] lg:h-[144px]"
+            className="relative rounded-full transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl w-[96px] h-[96px] md:w-[130px] md:h-[130px] lg:w-[144px] lg:h-[144px]"
             style={{
               padding: '4px',
               background: '#243247',
@@ -83,8 +83,8 @@ export default function HighlightsSection({ onStoryOpen }: HighlightsSectionProp
               }}
             >
               <Icon
-                size={32}
-                className="md:!w-[38px] md:!h-[38px] transition-transform duration-300 group-hover:scale-110"
+                size={28}
+                className="md:!w-[38px] md:!h-[38px] lg:!w-[42px] lg:!h-[42px] transition-transform duration-300 group-hover:scale-110"
                 style={{ color: '#e7ddcc', opacity: 0.9 }}
               />
             </div>
@@ -155,12 +155,10 @@ export default function HighlightsSection({ onStoryOpen }: HighlightsSectionProp
           </div>
         </div>
 
-        {/* Mobile: horizontally scrollable story bar */}
-        <div className="md:hidden overflow-x-auto scrollbar-hide -mx-4 px-4">
-          <div className="flex items-start justify-start gap-4 py-2 w-max">
-            {storyHighlights.map(renderCircle)}
-            {renderCircle(productHighlight)}
-          </div>
+        {/* Mobile: 2x2 grid */}
+        <div className="md:hidden grid grid-cols-2 gap-6 justify-items-center py-6 px-2">
+          {storyHighlights.map(renderCircle)}
+          {renderCircle(productHighlight)}
         </div>
       </div>
     </section>
